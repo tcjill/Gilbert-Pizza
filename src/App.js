@@ -28,7 +28,7 @@ class App extends Component {
       client_id:"JLIPFSTRQINS3SJWZEMHLLL20U0TYRV2RW5F4NOTEDXYAJVR",
       client_secret:"R4WNZB2KMVUKJGD5CAGFAUZVJNYJ1YWGILUJ5TN43UZPZ2ZJ",
       query:"food",
-      near:"Sydney",
+      near:"Phoenix, AZ",
       v: "20181508"
     
 
@@ -52,6 +52,12 @@ class App extends Component {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
     });
+
+    var marker = new window.google.maps.Marker({
+      position: {lat: -34.397, lng: 150.644},
+      map:map,
+      title: 'Hello World'
+    })
   }
 
   render() {
