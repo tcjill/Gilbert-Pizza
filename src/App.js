@@ -7,6 +7,8 @@ class App extends Component {
 
   state = {
     venues:[]
+    
+    
   }
 
   componentDidMount() {
@@ -49,14 +51,14 @@ class App extends Component {
   initMap = () => {
 
     var map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
+      center: {lat: 33.352826, lng: -111.789027},
       zoom: 8
     })
 
     this.state.venues.map(venue =>{
 
       var marker = new window.google.maps.Marker({
-        position: {lat: -34.397, lng: 150.644},
+        position: {lat: 33.352826, lng: -111.789027},
         map:map,
         
       })
@@ -64,7 +66,7 @@ class App extends Component {
     })
 
     var marker = new window.google.maps.Marker({
-      position: {lat: -34.397, lng: 150.644},
+      position: {lat: -34.397, lng: -111.789027},
       map:map,
       
     })
