@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+
 import axios from 'axios'
+
 class App extends Component {
 
   state = {
@@ -9,12 +11,13 @@ class App extends Component {
 
   componentDidMount() {
     this.getVenues()
+    this.renderMap()
     
   }
 
 
   renderMap = () => {
-    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAxAlm6hATvEKS6b_vmoEFZwdLMDRpdDcs&callback=initMap")
+    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZz6ih06iC5i-yFxcpi4vzfi9qqIPiKo&callback=initMap")
     window.initMap = this.initMap
 
   }
@@ -24,8 +27,8 @@ class App extends Component {
     const parameters = {
       client_id:"JLIPFSTRQINS3SJWZEMHLLL20U0TYRV2RW5F4NOTEDXYAJVR",
       client_secret:"R4WNZB2KMVUKJGD5CAGFAUZVJNYJ1YWGILUJ5TN43UZPZ2ZJ",
-      query:"coffee",
-      near:"Phoenix, AZ",
+      query:"food",
+      near:"Sydney",
       v: "20181508"
     
 
@@ -37,14 +40,15 @@ class App extends Component {
         }, this.renderMap())
 
       })
-      .catch(error => {
+      /*.catch(error => {
         console.log("ERROR!!" = error)
-      })
+      })*/
   }
 
 
   initMap = () => {
-    const map = new window.google.maps.Map(document.getElementById('map'), {
+
+    var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
     });
