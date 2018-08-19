@@ -30,7 +30,7 @@ class App extends Component {
       client_id:"JLIPFSTRQINS3SJWZEMHLLL20U0TYRV2RW5F4NOTEDXYAJVR",
       client_secret:"R4WNZB2KMVUKJGD5CAGFAUZVJNYJ1YWGILUJ5TN43UZPZ2ZJ",
       query:"food",
-      near:"Phoenix, AZ",
+      near:"Gilbert, AZ",
       v: "20181508"
     
 
@@ -60,6 +60,7 @@ class App extends Component {
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
         map:map,
+        title: myVenue.venue.name
         
       })
 
