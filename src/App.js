@@ -42,9 +42,9 @@ class App extends Component {
         }, this.renderMap())
 
       })
-      /*.catch(error => {
-        console.log("ERROR!!" = error)
-      })*/
+      .catch(error => {
+        console.log("ERROR!!" + error)
+      })
   }
 
 // create the map
