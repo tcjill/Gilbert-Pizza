@@ -47,30 +47,42 @@ class App extends Component {
       })*/
   }
 
-
+// create the map
   initMap = () => {
 
     var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 33.352826, lng: -111.789027},
       zoom: 8
     })
-
+// making the info window
+    var infoWindow = new window.google.maps.InfoWindow()
+       
+// display dynamic markers
     this.state.venues.map(myVenue =>{
+      
+      var contentString =`${myVenue.venue.name}`
 
+// making a marker
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
         map:map,
         title: myVenue.venue.name
         
       })
+ // click on marker
+      marker.addListener('click', function(){
+        //change content inside
+        infoWindow.setContent(contentString)
+
+
+
+        //open info window
+        infoWindow.open(map, marker)
+      })     
 
     })
 
-    var marker = new window.google.maps.Marker({
-      position: {lat: -34.397, lng: -111.789027},
-      map:map,
-      
-    })
+   
   }
 
   render() {
