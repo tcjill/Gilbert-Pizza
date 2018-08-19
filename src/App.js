@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Sidebar from "react-sidebar";
 
 import axios from 'axios'
 
