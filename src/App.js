@@ -66,6 +66,7 @@ class App extends Component {
       var marker = new window.google.maps.Marker({
         position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
         map:map,
+        animation: window.google.maps.Animation.DROP,
         title: myVenue.venue.name
         
       })
@@ -78,6 +79,16 @@ class App extends Component {
 
         //open info window
         infoWindow.open(map, marker)
+
+        
+       
+        // Animate The Marker
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+            marker.setAnimation(window.google.maps.Animation.BOUNCE);
+              }        
+
       })     
 
     })
