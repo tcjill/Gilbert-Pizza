@@ -86,7 +86,10 @@ class App extends Component {
         if (marker.getAnimation() !== null) {
           marker.setAnimation(null);
         } else {
-            marker.setAnimation(window.google.maps.Animation.BOUNCE);
+            marker.setAnimation(window.google.maps.Animation.BOUNCE)
+            setTimeout(function() {
+            marker.setAnimation(null)
+            },400)
               }        
 
       })     
