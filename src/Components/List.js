@@ -1,26 +1,43 @@
 import React, { Component } from 'react'
-/*NEED HELP
+import './style.css'
+
 class List extends Component {
+    createListItem = () => {
+      const venues = this.props.venues
+      let key = 0;
+      return venues.map((item) => {
+        return (
+          <li
+             className ="venue-list-item"
+              key= {key++}>
+             <p className="venue-list-item-name">{item.venue.name}</p>
+          </li>
+        )
+      })
+  }
+
+
   render() {
     return (
-      <ol className='contact-list'>
-        {this.props.contacts.map((contact) => (
-          <li key={contact.id} className='contact-list-item'>
-            <div className='contact-avatar' style={{
-              backgroundImage: `url(${contact.avatarURL})`
-            }}/>
-            <div className='contact-details'>
-              <p>{contact.name}</p>
-              <p>{contact.email}</p>
-            </div>
-            <button className='contact-remove'>
-              Remove
-            </button>
-          </li>
-        ))}
-      </ol>
+          <ul className= 'venues-list-parent'>
+          {/*add venues here*/}
+            {this.createListItem()}
+          </ul>
     )
   }
-}*/
+}
+export default List
 
-export default ListContacts
+
+
+
+
+
+
+
+
+
+
+
+
+
