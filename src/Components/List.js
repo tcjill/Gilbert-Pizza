@@ -20,7 +20,7 @@ class List extends Component {
   render() {
     return (
           <ul className= 'venues-list-parent'>
-          {/*add venues here*/}
+          {/*add  items here*/}
             {this.createListItem()}
           </ul>
     )
