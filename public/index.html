@@ -34,8 +34,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
        research this error ahandling too: window.gm_authFailure = () => {alert("Google Map Can't Be Loaded : InvalidKeyMapError ")}
     -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZz6ih06iC5i-yFxcpi4vzfi9qqIPiKo&callback=initMap"
-    async defer></script>
+    <script>
+      function mapError() {
+        alert('Your maps has failed to load');
+      }
+    </script>
+    
 
   </body>
 </html>
