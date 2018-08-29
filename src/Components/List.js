@@ -8,6 +8,7 @@ class List extends Component {
       return venues.map((item) => {
         return (
           <li
+            onClick = {() => {this.props.onClick(item.venue.name, item.venue.coordinate)}}
              className ="venue-list-item"
               key= {key++}>
              <p className="venue-list-item-name">{item.venue.name}</p>

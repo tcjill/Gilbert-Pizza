@@ -104,7 +104,10 @@ class App extends Component {
       return (
           <main>
             <div id="map" style={{height: `100%`, width: `100%`, position:`absolute`}}></div>
-            <List venues ={this.state.venues} />
+            <List venues ={this.state.venues} 
+              onClick={(name, coordinate) => {
+              // call map api to select pin at coordinate or by name
+              }}/>
           </main>  
 
         
