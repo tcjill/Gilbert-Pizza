@@ -39,9 +39,8 @@ class App extends Component {
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
         this.setState({
+          venues:response.data.response.groups[0].items .filter(myVen => myVen.venue.categories[0].name === 'Pizza Place') 
           
-          
-          venues:response.data.response.groups[0].items
         }, this.renderMap())
 
       })
@@ -56,6 +55,8 @@ class App extends Component {
     var map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 33.352826, lng: -111.789027},
       zoom: 16
+      
+
     })
 // making the info window
     var infoWindow = new window.google.maps.InfoWindow()
