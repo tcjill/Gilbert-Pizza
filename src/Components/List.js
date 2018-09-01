@@ -10,11 +10,14 @@ render() {
     // as below but with less typing
     const {venues} = this.props;
      return (
-        <ul>
-          {venues.map((item, index) => {
-            return <li className="venue-list-item" key={index}>{item.name}</li>
-          })}
-        </ul>
+       <aside className="sidebar">
+          <input type="text" className="search-input" placeholder="Search Places"/>
+          <ul className="venue-list-parent">
+            {venues.map((item, index) => {
+              return <li className="venue-list-item" key={index}>{item.venue.name}</li>
+            })}
+          </ul>
+        </aside>
     )
   }
 }

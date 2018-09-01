@@ -39,7 +39,7 @@ class App extends Component {
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
         this.setState({
-          venues:response.data.response.groups[0].items .filter(myVen => myVen.venue.categories[0].name === 'Pizza Place') 
+          venues:response.data.response.groups[0].items.filter(myVen => myVen.venue.categories[0].name === 'Pizza Place') 
           
         }, this.renderMap())
 
@@ -107,8 +107,8 @@ class App extends Component {
       this.state.venues.forEach(myVen=>
       console.log(myVen.venue.categories[0].name))
       return (
-          <main>
-            <div id="map" style={{height: `100%`, width: `100%`, position:`absolute`}}></div>
+          <main className="container">
+            <div id="map"></div>
             <List venues ={this.state.venues} 
               onClick={(name, coordinate) => {
               // call map api to select pin at coordinate or by name
