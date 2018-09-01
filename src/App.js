@@ -39,6 +39,8 @@ class App extends Component {
     axios.get(endPoint + new URLSearchParams(parameters))
       .then(response => {
         this.setState({
+          
+          
           venues:response.data.response.groups[0].items
         }, this.renderMap())
 
@@ -101,6 +103,8 @@ class App extends Component {
   }
 
     render() {
+      this.state.venues.forEach(myVen=>
+      console.log(myVen.venue.categories[0].name))
       return (
           <main>
             <div id="map" style={{height: `100%`, width: `100%`, position:`absolute`}}></div>
