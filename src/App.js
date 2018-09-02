@@ -53,8 +53,8 @@ class App extends Component {
   initMap = () => {
 
     var map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: 33.352826, lng: -111.789027},
-      zoom: 16
+      center: {lat: 33.3343, lng: -111.7707},
+      zoom: 12
       
 
     })
