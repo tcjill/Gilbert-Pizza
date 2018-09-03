@@ -3,7 +3,7 @@ import './style.css'
 
 class List extends Component {
     
-indexOfExample() {
+//indexOfExample() {
   // const listItem = 'Jill Gundaker\'s Pizza';
   // const search = 'Jill';
 
@@ -30,7 +30,7 @@ indexOfExample() {
 
  // console.log('Filtered State', filteredState)
 
-}
+//}
 
 render() {
    
