@@ -1,4 +1,6 @@
-# tire
+# Jill's Gilbert Pizaa
+
+## References
 https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 https://developer.foursquare.com/docs/api/venues/search
 https://github.com/axios/axios
@@ -7,14 +9,14 @@ https://github.com/axios/axios
 ## How to Use
 You can click on the location from the sidebar or on a marker on the map.  You will find more information about the venue from there.
 
-##Dependencies
--Foursquare API
--React
--Google Maps API
+## Dependencies
+*Foursquare API
+*React
+*Google Maps API
 
 
 
-##/Udacity's Rubric
+## Udacity's Rubric
 Rubric:https://review.udacity.com/#!/rubrics/1351/view
 
 PROJECT SPECIFICATION
