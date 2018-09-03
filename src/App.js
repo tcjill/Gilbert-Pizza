@@ -105,7 +105,7 @@ class App extends Component {
 
     render() {
       this.state.venues.forEach(myVen=>
-      console.log(myVen.venue.categories[0].name))
+      console.log(''))
       return (
           <main className="container">
             <div id="map"></div>
