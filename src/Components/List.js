@@ -43,7 +43,7 @@ render() {
           <input type="text" className="search-input" placeholder="Search Places"/>
           <ul className="venue-list-parent">
             {venues
-              .filter(filtered => filtered.venue.name.indexOf('sa') > -1)
+              .filter(filtered => filtered.venue.name.indexOf('') > -1)
               .map((item, index) => {
                 return <li className="venue-list-item" key={index}>{item.venue.name}</li>
             })}
