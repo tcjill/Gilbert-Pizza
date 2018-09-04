@@ -1,4 +1,4 @@
-# Jill's Gilbert Pizaa
+# Jill's Gilbert Pizza Places
 
 ## References and dependencies used for Project
 https://developers.google.com/maps/documentation/javascript/adding-a-google-map
