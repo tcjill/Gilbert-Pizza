@@ -10,6 +10,9 @@ https://github.com/axios/axios
 
 *Google Maps API
 
+##Service Worker
+
+This project was created using create-react-app. This project will need to be run in production mode for the service worker to work as intended.
 
 ## How to Start
 npm
