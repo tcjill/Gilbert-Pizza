@@ -10,7 +10,7 @@ class List extends Component {
     this.setState({query})
     
   }
-  /*updateMarksers =() =>{
+  /*updateMarkers =() =>{
     this.props.markers
 }*/
 render() {
