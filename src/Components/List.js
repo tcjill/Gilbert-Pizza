@@ -7,8 +7,12 @@ class List extends Component {
     searchedBooks: []
   }
   updateQuery = (query) => {
-    this.setState({query});
+    this.setState({query})
+    
   }
+  /*updateMarksers =() =>{
+    this.props.markers
+}*/
 render() {
    
     // with destructuring you can do the same
