@@ -109,7 +109,7 @@ class App extends Component {
       console.log(''))
       return (
           <main className="container">
-            <div id="map"></div>
+            <div id="map" role="application" aria-label="map"/>
             <List venues ={this.state.venues} 
               onClick={(name, coordinate) => {
               // call map api to select pin at coordinate or by name
