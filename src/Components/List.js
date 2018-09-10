@@ -32,7 +32,7 @@ render() {
             {venues
               .filter(filtered => filtered.venue.name.toLowerCase().indexOf(this.state.query.toLowerCase()) > -1)
               .map((item, index) => {
-                return <li className="venue-list-item" key={index}>{item.venue.name}</li>
+                return <li tabIndex='0' className="venue-list-item" key={index}>{item.venue.name}</li>
             })}
           </ul>
         </aside>
