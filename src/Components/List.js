@@ -21,7 +21,7 @@ render() {
     console.log(venues)
      return (
        <aside className="sidebar">
-        <input 
+        <input aria-label="search field"
             type="text" 
             placeholder="Search Places"
             value={this.state.query}
