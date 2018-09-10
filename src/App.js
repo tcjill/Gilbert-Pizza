@@ -4,6 +4,9 @@ import './App.css';
 import List from './Components/List'
 import axios from 'axios'
 
+window.gm_authFailure = () =>{
+  alert("Error, check your Google API key");
+};
 class App extends Component {
 
   state = {
