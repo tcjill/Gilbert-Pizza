@@ -20,10 +20,11 @@ This project was created using create-react-app. This project will need to be ru
 ## How to Start
 
 npm
-Download or Clone this Repository.
+Download or Clone this Repository. https://github.com/tcjill/tire
 Run $ npm install to install the project dependencies.
 Run the app using $ npm start.
 App can be seen at: localhost:3000 which should open automatically.
+https://docs.npmjs.com/cli/start Is a good place for info if you have any trouble.
 
 ## How to Use
 
