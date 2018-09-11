@@ -19,7 +19,7 @@ class List extends Component {
           type="text"
           placeholder="Search Places"
           value={this.props.query}
-          onChange={event => this.updateQuery(event.target.value)}
+          onChange={event => this.props.updateQuery(event.target.value)}
         />
         <ul className="venue-list-parent">
           {venues

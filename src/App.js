@@ -13,15 +13,21 @@ class App extends Component {
     markers: [],
     query: "",
     searchedBooks: []
+    
   };
+  
 
   componentDidMount() {
     this.getVenues();
+    
   }
+  
 
   updateQuery = query => {
     this.setState({ query });
+    
   };
+  
 
   renderMap = () => {
     loadScript(
@@ -101,17 +107,21 @@ class App extends Component {
       return marker;
     });
     this.setState({ markers });
+    
   };
 
   render() {
     this.state.venues.forEach(myVen => console.log(""));
     console.log(this.state.markers);
+    
     return (
       <main className="container">
         <div id="map" role="application" aria-label="map" />
+        
         <List
           venues={this.state.venues}
           query={this.state.query}
+          updateQuery={this.updateQuery}
           onClick={(name, coordinate) => {
             // call map api to select pin at coordinate or by name
           }}
@@ -129,6 +139,7 @@ function loadScript(url) {
   script.async = true;
   script.defer = true;
   index.parentNode.insertBefore(script, index);
+  
 }
 
 export default App;
