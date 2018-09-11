@@ -1,143 +1,134 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-import List from './Components/List'
-import axios from 'axios'
+import List from "./Components/List";
+import axios from "axios";
 
-window.gm_authFailure = () =>{
+window.gm_authFailure = () => {
   alert("Error, check your Google API key");
 };
 class App extends Component {
-
   state = {
-    venues:[],
-    markers:[]
-    
-    
-  }
+    venues: [],
+    markers: [],
+    query: "",
+    searchedBooks: []
+  };
 
   componentDidMount() {
-    this.getVenues()
-   
-    
+    this.getVenues();
   }
 
+  updateQuery = query => {
+    this.setState({ query });
+  };
 
   renderMap = () => {
-    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZz6ih06iC5i-yFxcpi4vzfi9qqIPiKo&callback=initMap")
-    window.initMap = this.initMap
+    loadScript(
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZz6ih06iC5i-yFxcpi4vzfi9qqIPiKo&callback=initMap"
+    );
+    window.initMap = this.initMap;
+  };
 
-  }
-
-  getVenues =() => {
-    const endPoint = "https://api.foursquare.com/v2/venues/explore?"
+  getVenues = () => {
+    const endPoint = "https://api.foursquare.com/v2/venues/explore?";
     const parameters = {
-      client_id:"JLIPFSTRQINS3SJWZEMHLLL20U0TYRV2RW5F4NOTEDXYAJVR",
-      client_secret:"R4WNZB2KMVUKJGD5CAGFAUZVJNYJ1YWGILUJ5TN43UZPZ2ZJ",
-      query:"food",
-      near:"Gilbert, AZ",
+      client_id: "JLIPFSTRQINS3SJWZEMHLLL20U0TYRV2RW5F4NOTEDXYAJVR",
+      client_secret: "R4WNZB2KMVUKJGD5CAGFAUZVJNYJ1YWGILUJ5TN43UZPZ2ZJ",
+      query: "food",
+      near: "Gilbert, AZ",
       v: "20181508"
-    
-
-    }
-    axios.get(endPoint + new URLSearchParams(parameters))
+    };
+    axios
+      .get(endPoint + new URLSearchParams(parameters))
       .then(response => {
-        this.setState({
-          venues:response.data.response.groups[0].items.filter(myVen => myVen.venue.categories[0].name === 'Pizza Place') 
-          
-        }, this.renderMap())
-
+        this.setState(
+          {
+            venues: response.data.response.groups[0].items.filter(
+              myVen => myVen.venue.categories[0].name === "Pizza Place"
+            )
+          },
+          this.renderMap()
+        );
       })
       .catch(error => {
-        alert("Error: Couldn't load data from Foursquare.")
-        console.log("ERROR!!" + error)
-      })
-  }
+        alert("Error: Couldn't load data from Foursquare.");
+        console.log("ERROR!!" + error);
+      });
+  };
 
-// create the map
+  // create the map
   initMap = () => {
-
-    var map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: 33.3343, lng: -111.7707},
+    var map = new window.google.maps.Map(document.getElementById("map"), {
+      center: { lat: 33.3343, lng: -111.7707 },
       zoom: 12
-      
+    });
+    // making the info window
+    var infoWindow = new window.google.maps.InfoWindow();
 
-    })
-// making the info window
-    var infoWindow = new window.google.maps.InfoWindow()
-       
-// display dynamic markers
-    this.state.venues.map(myVenue =>{
-      
-      var contentString =`${myVenue.venue.name}`
+    // display dynamic markers
+    let markers = this.state.venues.map(myVenue => {
+      var contentString = `${myVenue.venue.name}`;
 
-// making a marker
+      // making a marker
       var marker = new window.google.maps.Marker({
-        position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
-        map:map,
+        position: {
+          lat: myVenue.venue.location.lat,
+          lng: myVenue.venue.location.lng
+        },
+        map: map,
         animation: window.google.maps.Animation.DROP,
         title: myVenue.venue.name
-        
-      })
- // click on marker
-      marker.addListener('click', function(){
+      });
+      // click on marker
+      marker.addListener("click", function() {
         //change content inside
-        infoWindow.setContent(contentString)
-
-
+        infoWindow.setContent(contentString);
 
         //open info window
-        infoWindow.open(map, marker)
+        infoWindow.open(map, marker);
 
-        
-       
         // Animate The Marker
         if (marker.getAnimation() !== null) {
           marker.setAnimation(null);
         } else {
-            marker.setAnimation(window.google.maps.Animation.BOUNCE)
-            setTimeout(function() {
-            marker.setAnimation(null)
-            },400)
-              }        
+          marker.setAnimation(window.google.maps.Animation.BOUNCE);
+          setTimeout(function() {
+            marker.setAnimation(null);
+          }, 400);
+        }
+      });
+      return marker;
+    });
+    this.setState({ markers });
+  };
 
-      })     
-
-    })
-
-   
-  }
-
-    render() {
-      this.state.venues.forEach(myVen=>
-      console.log(''))
-      return (
-          <main className="container">
-            <div id="map" role="application" aria-label="map"/>
-            <List venues ={this.state.venues} 
-              onClick={(name, coordinate) => {
-              // call map api to select pin at coordinate or by name
-              }}/>
-          </main>  
-
-        
-     
-
-    ) 
+  render() {
+    this.state.venues.forEach(myVen => console.log(""));
+    console.log(this.state.markers);
+    return (
+      <main className="container">
+        <div id="map" role="application" aria-label="map" />
+        <List
+          venues={this.state.venues}
+          query={this.state.query}
+          onClick={(name, coordinate) => {
+            // call map api to select pin at coordinate or by name
+          }}
+          
+        />
+      </main>
+    );
   }
 }
-
 
 function loadScript(url) {
-  var index = window.document.getElementsByTagName("script")[0]
-  var script = window.document.createElement ("script")
-  script.src = url
-  script.async = true
-  script.defer = true
-  index.parentNode.insertBefore(script, index)
+  var index = window.document.getElementsByTagName("script")[0];
+  var script = window.document.createElement("script");
+  script.src = url;
+  script.async = true;
+  script.defer = true;
+  index.parentNode.insertBefore(script, index);
 }
 
-
-
- 
 export default App;
