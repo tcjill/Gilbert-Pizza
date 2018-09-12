@@ -94,6 +94,7 @@ class App extends Component {
           lng: myVenue.venue.location.lng
         },
         map: map,
+        id:myVenue.venue.name,
         animation: window.google.maps.Animation.DROP,
         title: myVenue.venue.name
       });
