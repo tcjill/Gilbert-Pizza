@@ -25,9 +25,20 @@ class App extends Component {
 
   updateQuery = query => {
     this.setState({ query });
+      if(query.trim() === ""){
+    this.state.markers.forEach(marker => marker.setVisible(true))
+    return true;
+      }else {
+      let venues = this.state.venues.filter(venue => {
+          return venue.venue.name.toLowerCase().indexOf(query.toLowerCase()) > -1
+      })
+      venues.forEach(item => this.state.markers.filter(marker => marker.id !== item.venue.name).map(falseMarker => falseMarker.setVisible(false)))
+      venues.forEach(item => this.state.markers.filter(marker => marker.id === item.venue.name).map(trueMarker => trueMarker.setVisible(true)))
+  }
     
-  };
+  };  
   
+
 
   renderMap = () => {
     loadScript(
@@ -121,6 +132,7 @@ class App extends Component {
         <List
           venues={this.state.venues}
           query={this.state.query}
+          markers={this.state.markers}
           updateQuery={this.updateQuery}
           onClick={(name, coordinate) => {
             // call map api to select pin at coordinate or by name
