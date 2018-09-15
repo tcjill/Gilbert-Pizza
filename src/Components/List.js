@@ -4,9 +4,6 @@ import "./style.css";
 class List extends Component {
   state = {};
 
-  /*updateMarkers =() =>{
-    this.props.markers
-}*/
   handleClick = (id,title) => {
   this.props.showMarkerBox(this.props.markers[id],title)
 }
