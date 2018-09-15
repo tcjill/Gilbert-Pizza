@@ -12,7 +12,9 @@ class App extends Component {
     venues: [],
     markers: [],
     query: "",
-    searchedBooks: []
+    searchedBooks: [],
+    infoWindow:[]
+    
     
   };
   
@@ -73,6 +75,16 @@ class App extends Component {
         console.log("ERROR!!" + error);
       });
   };
+  showMarkerBox = ( marker, contentString) => {
+    this.state.infoWindow.setContent(contentString);
+    this.state.infoWindow.open(this.state.map, marker);
+    marker.setAnimation(window.google.maps.Animation.BOUNCE);
+    setTimeout(function() {
+      marker.setAnimation(null);
+    }, 400);
+}
+  
+  
 
   // create the map
   initMap = () => {
@@ -82,6 +94,7 @@ class App extends Component {
     });
     // making the info window
     var infoWindow = new window.google.maps.InfoWindow();
+      this.setState({ map,infoWindow})
 
     // display dynamic markers
     let markers = this.state.venues.map(myVenue => {
@@ -99,12 +112,13 @@ class App extends Component {
         title: myVenue.venue.name
       });
       // click on marker
-      marker.addListener("click", function() {
+      marker.addListener("click", () => {
+        this.showMarkerBox(marker, contentString);
         //change content inside
-        infoWindow.setContent(contentString);
+       
 
         //open info window
-        infoWindow.open(map, marker);
+       // infoWindow.open(map, marker);
 
         // Animate The Marker
         if (marker.getAnimation() !== null) {
@@ -135,9 +149,9 @@ class App extends Component {
           query={this.state.query}
           markers={this.state.markers}
           updateQuery={this.updateQuery}
-          onClick={(name, coordinate) => {
+          showMarkerBox={this.showMarkerBox} 
             // call map api to select pin at coordinate or by name
-          }}
+          
           
         />
       </main>

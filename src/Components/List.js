@@ -7,6 +7,10 @@ class List extends Component {
   /*updateMarkers =() =>{
     this.props.markers
 }*/
+  handleClick = (id,title) => {
+  this.props.showMarkerBox(this.props.markers[id],title)
+}
+
   render() {
     // with destructuring you can do the same
     // as below but with less typing
@@ -20,6 +24,7 @@ class List extends Component {
           placeholder="Search Places"
           value={this.props.query}
           onChange={event => this.props.updateQuery(event.target.value)}
+          
         />
         <ul className="venue-list-parent">
           {venues
@@ -31,7 +36,7 @@ class List extends Component {
             )
             .map((item, index) => {
               return (
-                <li tabIndex="0" className="venue-list-item" key={index}>
+                <li tabIndex="0" className="venue-list-item" key={index} onClick={()=> this.handleClick(index,item.venue.name)}>
                   {item.venue.name}
                 </li>
               );
