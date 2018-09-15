@@ -37,7 +37,7 @@ class List extends Component {
             .map((item, index) => {
               return (
                 <li tabIndex="0" className="venue-list-item" key={index} onClick={()=> this.handleClick(index,item.venue.name)}>
-                  {item.venue.name}
+                 role="tab" {item.venue.name}
                 </li>
               );
             })}
