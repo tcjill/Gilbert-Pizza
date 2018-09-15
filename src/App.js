@@ -150,7 +150,7 @@ class App extends Component {
           markers={this.state.markers}
           updateQuery={this.updateQuery}
           showMarkerBox={this.showMarkerBox} 
-            // call map api to select pin at coordinate or by name
+           
           
           
         />
@@ -165,6 +165,7 @@ function loadScript(url) {
   script.src = url;
   script.async = true;
   script.defer = true;
+  script.onerror = "Google Maps Failed to Load-"
   index.parentNode.insertBefore(script, index);
   
 }
