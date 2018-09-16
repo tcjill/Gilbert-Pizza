@@ -77,7 +77,9 @@ class App extends Component {
   };
   showMarkerBox = ( marker, contentString) => {
     this.state.infoWindow.setContent(contentString);
+    
     this.state.infoWindow.open(this.state.map, marker);
+    
     marker.setAnimation(window.google.maps.Animation.BOUNCE);
     setTimeout(function() {
       marker.setAnimation(null);
@@ -98,7 +100,7 @@ class App extends Component {
 
     // display dynamic markers
     let markers = this.state.venues.map(myVenue => {
-      var contentString = `${myVenue.venue.name}`;
+      var contentString = `${myVenue.venue.name}${myVenue.venue.location.address}`;
 
       // making a marker
       var marker = new window.google.maps.Marker({
@@ -109,7 +111,8 @@ class App extends Component {
         map: map,
         id:myVenue.venue.name,
         animation: window.google.maps.Animation.DROP,
-        title: myVenue.venue.name
+        title: myVenue.venue.name,
+        address: myVenue.venue.location.address
       });
       // click on marker
       marker.addListener("click", () => {
