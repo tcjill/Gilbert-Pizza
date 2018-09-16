@@ -36,6 +36,8 @@ https://docs.npmjs.com/cli/start Is a good place for info if you have any troubl
 
 You can click on the location from the sidebar or on a marker on the map.  You will find more information about the venue from there.
 
+## See in Action
+https://hopeful-banach-f689e0.netlify.com
 
 ### Udacity's Rubric
 
