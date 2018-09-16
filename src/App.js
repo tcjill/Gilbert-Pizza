@@ -18,13 +18,11 @@ class App extends Component {
     
   };
   
-
   componentDidMount() {
     this.getVenues();
     
   }
   
-
   updateQuery = query => {
     this.setState({ query });
       if(query.trim() === ""){
@@ -117,11 +115,7 @@ class App extends Component {
       // click on marker
       marker.addListener("click", () => {
         this.showMarkerBox(marker, contentString);
-        //change content inside
-       
-
-        //open info window
-       // infoWindow.open(map, marker);
+        
 
         // Animate The Marker
         if (marker.getAnimation() !== null) {
