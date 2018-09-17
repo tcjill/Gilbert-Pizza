@@ -12,7 +12,7 @@ class App extends Component {
     venues: [],
     markers: [],
     query: "",
-    searchedBooks: [],
+   
     infoWindow:[]
     
     
