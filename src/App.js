@@ -42,7 +42,7 @@ class App extends Component {
 
   renderMap = () => {
     loadScript(
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZz6ih06iC5i-yFxcpi4vzfi9qqIPiKo&callback=initMap"
+      "https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
     );
     window.initMap = this.initMap;
   };
@@ -50,8 +50,8 @@ class App extends Component {
   getVenues = () => {
     const endPoint = "https://api.foursquare.com/v2/venues/explore?";
     const parameters = {
-      client_id: "JLIPFSTRQINS3SJWZEMHLLL20U0TYRV2RW5F4NOTEDXYAJVR",
-      client_secret: "R4WNZB2KMVUKJGD5CAGFAUZVJNYJ1YWGILUJ5TN43UZPZ2ZJ",
+      client_id: "",
+      client_secret: "",
       query: "food",
       near: "Gilbert, AZ",
       v: "20181508"
